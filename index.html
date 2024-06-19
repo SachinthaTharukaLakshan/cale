@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+         /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        input[type="text"] {
+            width: 200px;
+            height: 40px;
+            margin: 10px 0;
+            font-size: 1.2em;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        } */
+        input[type="button"] {
+            width: 100px;
+            height: 40px;
+            margin: 10px 0;
+            font-size: 1.2em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+        input[type="button"]:active {
+            background-color: #0056b3;
+        }
+        label {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Number 01" id="number01">
+    <input type="text" placeholder="Number 02" id="number02">
+    <input type="text" placeholder="Operator" id="operator">
+    <input type="button" value="Calc" id="btn" onclick="calc()">
+    <label id="output"></label>
+
+    <script>
+        function calc() {
+            const number01 = parseFloat(document.getElementById('number01').value);
+            const number02 = parseFloat(document.getElementById('number02').value);
+            const operator = document.getElementById('operator').value;
+            let result;
+
+            switch (operator) {
+                case '+':
+                    result = number01 + number02;
+                    break;
+                case '-':
+                    result = number01 - number02;
+                    break;
+                case '*':
+                    result = number01 * number02;
+                    break;
+                case '/':
+                    result = number02 !== 0 ? number01 / number02 : 'Error: Division by zero';
+                    break;
+                default:
+                    result = 'Error: Invalid operator';
+                    break;
+            }
+
+            document.getElementById('output').innerText = result;
+        }
+    </script>
+</body>
+</html>
